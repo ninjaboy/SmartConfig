@@ -6,6 +6,7 @@ Show me the code.
 
 1. Config (app.config)
 Add section to your app.config as usual
+```xml
 <configuration>
   <configSections>
     <section name="TestSettings" type="SmartConfig.SmartConfigSectionHandler, SmartConfig" />
@@ -28,8 +29,10 @@ Add section to your app.config as usual
     </InternalObjectsList>
   </TestSettings>
 </configuration>
+```
 
 2. Describe your settings class in code
+```.net
     [SettingSetup(OverrideToken = "TestOverride", OverrideAttributeName = "override")]
     public class TestSettings
     {
@@ -64,12 +67,14 @@ Add section to your app.config as usual
             get {foreach (InternalObject obj in InternalObjectsImp){ yield return obj; }}
         }
     }
-    
+```  
+
 3. Read your settings anywhere in the code
+```.net
             TestSettings testSettings = SmartConfigSectionHandler.GetSection<TestSettings>("TestSettings",
                 new CultureInfo("en-GB"),
                 (overrideToken, overrideValue) => overrideToken=="TestOverride" && overrideValue == "1");
-
+```
 Key features:
 1. Automatic support of type conversion
 2. Easy support of complex fields and lists of objects
