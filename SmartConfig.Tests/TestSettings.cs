@@ -90,4 +90,20 @@ namespace SmartConfig.Tests
             ElementType = typeof(InternalObject))]
         public ArrayList List { get; set; }
     }
+
+    public class Item
+    {
+        [SettingValue("Id")]
+        public string Id { get; set; }
+    }
+
+    [SettingSetup(OverrideToken = "Override", OverrideAttributeName = "case")]
+    public class SettingsWithList
+    {
+        [SettingClass("InternalItem", Type = typeof(Item))]
+        public Item InternalItem { get; set; }
+
+        [SettingList(ListName = "Items", NodeName = "Item", ElementType = typeof(Item))]
+        public ArrayList List { get; set; }
+    }
 }

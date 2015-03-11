@@ -116,5 +116,27 @@ namespace SmartConfig.Tests
             UnexpectedItemInList testSettings = SmartConfigSectionHandler.GetSection<UnexpectedItemInList>("UnexpectedItemInList",
                 new CultureInfo("en-GB"));
         }
+
+        [Test]
+        public void ComplexObjectOverrideTest()
+        {
+            SettingsWithList overriden = SmartConfigSectionHandler.
+                                           GetSection<SettingsWithList>("TestListOverride",
+                                                                    new CultureInfo("en-GB"),
+                                                                    (p1, p2) => p2 == "0");
+            Assert.AreEqual("case0", overriden.InternalItem.Id);
+        }
+
+        [Test]
+        public void ListOverrideTest()
+        {
+            SettingsWithList overriden = SmartConfigSectionHandler.
+                                           GetSection<SettingsWithList>("TestListOverride",
+                                                                    new CultureInfo("en-GB"),
+                                                                    (p1, p2) => p2 == "0");
+            Assert.AreEqual(1, overriden.List.Count);
+            Assert.AreEqual("2", ((Item)overriden.List[0]).Id);
+
+        }
     }
 }
