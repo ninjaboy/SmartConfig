@@ -1,6 +1,5 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
-using BS2000Common;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
@@ -28,10 +27,10 @@ using BS2000Common;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyCompany(CommonAssemblyInfo.CompanyName)]
-[assembly: AssemblyCopyright(CommonAssemblyInfo.Copyright)]
-[assembly: AssemblyProduct(CommonAssemblyInfo.ProductName)]
+[assembly: AssemblyCompany("BlueCrocodile")]
+[assembly: AssemblyCopyright("Pirate Software")]
+[assembly: AssemblyProduct("SmartConfig")]
 
-[assembly: AssemblyVersion(CommonAssemblyInfo.Version)]
-[assembly: AssemblyFileVersion(CommonAssemblyInfo.FileVersion)]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]
 

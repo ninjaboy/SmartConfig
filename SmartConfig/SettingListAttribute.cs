@@ -8,5 +8,6 @@ namespace SmartConfig
         public string NodeName { get; set; }
         public string ListName { get; set; }
         public Type ElementType { get; set; }
+        public bool IsRequired { get; set; }
     }
 }
